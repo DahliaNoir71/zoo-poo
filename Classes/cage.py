@@ -31,7 +31,14 @@ class Cage:
         if not len(self.animals):
             self.animal_espece = animal.espece  # Set the espece of the cage to the first animal added.  # TODO: Consider handling case where multiple animals have the same species.  # TODO: Consider handling case where the cage already contains animals of the same species.  # TODO: Consider handling case where the cage already contains animals of different species.  # TODO: Consider handling case where the animal list contains None values.  # TODO: Consider handling case where the animal list contains non-animal objects.  # TODO: Consider handling case where the animal list contains animals of different species.  # TODO: Consider handling case where the animal list contains animals of the same species.  # TODO: Consider handling case where the animal list contains animals of the same species.  # TODO: Consider handling case where the animal list contains animals of the same species.  # TODO: Consider handling
         if animal not in self.animals and animal.espece == self.animal_espece :
+            print(f"{animal.espece} {animal.nom} ajouté à la cage.\n")
             self.animals.append(animal)
+        elif animal.espece != self.animal_espece:
+            msg_alert = f"Vous ne pouvez ajouter l'espèce {animal.espece} dans une cage {self.animal_espece}.\n"
+            print(msg_alert)
+        elif animal in self.animals:
+            msg_alert = f"{animal.nom} est déjà dans la cage.\n"
+            print(msg_alert)
 
     def add_animals(self, animals):
         """
@@ -82,4 +89,8 @@ class Cage:
         Returns:
         - str: A string representation of the cage, including the species of animals and the list of animals.
         """
-        return f'Cage with {self.animal_espece} animals: {self.animals}'
+        str_description = f'Cage {self.animal_espece}\n'
+        str_description += f'Nb animaux : {len(self.animals)}'
+        for animal in self.animals:
+            str_description += f'\n- {animal}'
+        return str_description

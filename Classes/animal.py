@@ -39,9 +39,7 @@ class Animal:
         None
         """
         self.nom = name
-        self.espece = species
-        self.proies = []
-        self.regime_alimentaire = ""
+
 
     def __str__(self):
         """
