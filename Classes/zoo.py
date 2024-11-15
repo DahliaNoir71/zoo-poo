@@ -2,6 +2,9 @@ from matplotlib import pyplot as plt
 from Classes.cage import Cage
 
 
+
+
+
 class Zoo:
     nom = ''
     cages = []
@@ -138,8 +141,9 @@ class Zoo:
         # Display the plot
         plt.show()
 
-
-
+    def add_animal(self, animal):
+        new_cage = Cage([animal])
+        self.add_cage(new_cage)
 
 
         
