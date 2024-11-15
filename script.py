@@ -44,4 +44,9 @@ zootopia.remove_cage(cage_lions)
 cage_lions.remove_animal(lion_leo)
 print(zootopia)
 
+zootopia.plot()
+
+cage_lions.empty_cage()
+print(zootopia)
+
 
