@@ -94,6 +94,7 @@ class Zoo:
                 self.cages.remove(cage)
                 print(f"Cage {cage.animal_espece} vide retirée du zoo.\n")
 
+
     def get_empty_cages(self):
         empty_cages =  [cage for cage in self.cages if len(cage.animals) == 0]
         return empty_cages
