@@ -82,4 +82,32 @@ class Zoo:
         for cage in self.cages:
             str_description += f"- {cage}\n"
         return str_description
+
+    def remove_cage(self, cage):
+        print(f"Suppression de la cage {cage.animal_espece}")
+        if cage in self.cages:
+            if len(cage.animals) > 0:
+                print("Cette cage n'est pas vide. Suppression annulée.\n")
+            else:
+                self.cages.remove(cage)
+                print(f"Cage {cage.animal_espece} vide retirée du zoo.\n")
+
+    def get_empty_cages(self):
+        empty_cages =  [cage for cage in self.cages if len(cage.animals) == 0]
+        return empty_cages
+
+    def print_empty_cages_descrption(self):
+        empty_cages = self.get_empty_cages()
+        if len(empty_cages) == 0:
+            print("Aucune cage vide dans le zoo.\n")
+        else:
+            print(f"Cages vides dans le zoo:\n")
+            for cage in empty_cages:
+                print(f"- {cage}\n")
+
+    def remove_empty_cages(self):
+        empty_cages = self.get_empty_cages()
+        for cage in empty_cages:
+            self.remove_cage(cage)
+
         

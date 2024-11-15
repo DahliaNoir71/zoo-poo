@@ -33,4 +33,15 @@ other_gazelle = Gazelle("Gaz Aile")
 second_cage.add_animals([gazelle_azelle, other_gazelle])
 print(zootopia)
 
+second_cage.remove_animal(other_gazelle)
+print(zootopia)
+
+zootopia.print_empty_cages_descrption()
+zootopia.remove_empty_cages()
+
+cage_lions = zootopia.cages[0]
+zootopia.remove_cage(cage_lions)
+cage_lions.remove_animal(lion_leo)
+print(zootopia)
+
 

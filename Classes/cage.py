@@ -81,6 +81,14 @@ class Cage:
         """
         if animal in self.animals:
             self.animals.remove(animal)
+            print(f"{animal.espece} {animal.nom} retiré de la cage.\n")
+
+    def empty_cage(self):
+        """
+        Remove all animals from the cage.
+        """
+        self.animals = []
+        print(f"La cage a été vidé.\n")
             
     def __str__(self):
         """
@@ -89,8 +97,11 @@ class Cage:
         Returns:
         - str: A string representation of the cage, including the species of animals and the list of animals.
         """
-        str_description = f'Cage {self.animal_espece}\n'
-        str_description += f'Nb animaux : {len(self.animals)}'
-        for animal in self.animals:
-            str_description += f'\n- {animal}'
-        return str_description
+        if not len(self.animals):
+            return 'Cage vide.'
+        else:
+            str_description = f'Cage pour {self.animal_espece}\n'
+            str_description += f'Nb animaux : {len(self.animals)}'
+            for animal in self.animals:
+                str_description += f'\n- {animal}'
+            return str_description
