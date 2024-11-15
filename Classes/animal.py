@@ -1,7 +1,6 @@
 class Animal:
     nom = ''
     espece = ''
-    proies = []  # List of animals this animal preys on.
 
 
     def __init__(self, name, species):
@@ -9,11 +8,12 @@ class Animal:
         self.espece = species
         self.proies = []
 
+    def __str__(self):
+        return f"Nom : {self.nom}, Espèce : {self.espece}"
+
 
 class Lion(Animal):
     espece = "Lion"
-    proies = ["Gazelle"]  # Lions are known to prey on elephants and wildebeests.
-
 
     def __init__(self, name):
         super().__init__(name, self.species)
