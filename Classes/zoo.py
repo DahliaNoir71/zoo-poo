@@ -1,5 +1,4 @@
 from matplotlib import pyplot as plt
-
 from Classes.cage import Cage
 
 
@@ -138,57 +137,6 @@ class Zoo:
         # Display the plot
         plt.show()
 
-    def draw(self):
-        """
-        Create a graphical representation of the zoo using turtle.
 
-        Parameters:
-        None
-
-        Returns:
-        None
-        """
-        # Create a turtle object
-        t = turtle.Turtle()
-
-        # Set the turtle speed and color
-        t.speed(10)
-        t.color("black")
-
-        # Draw the zoo name
-        t.penup()
-        t.goto(-100, 200)
-        t.write(f"Zoo: {self.nom}", align="center", font=("Arial", 18, "bold"))
-        t.pendown()
-
-        # Draw the cages
-        cage_width = 50
-        cage_height = 30
-        cage_spacing = 10
-
-        for i, cage in enumerate(self.cages):
-            # Draw the cage rectangle
-            t.penup()
-            t.goto(-100 + i * (cage_width + cage_spacing), 0)
-            t.pendown()
-            t.begin_fill()
-            for _ in range(2):
-                t.forward(cage_width)
-                t.right(90)
-                t.forward(cage_height)
-                t.right(90)
-            t.end_fill()
-
-            # Draw the cage label
-            t.penup()
-            t.goto(-100 + i * (cage_width + cage_spacing) + cage_width / 2, -cage_height / 2)
-            t.write(f"Cage {i + 1}: {cage.animal_espece}", align="center", font=("Arial", 12))
-            t.pendown()
-
-        # Hide the turtle
-        t.hideturtle()
-
-        # Wait for the user to close the window
-        turtle.done()
 
         
