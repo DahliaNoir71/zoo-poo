@@ -2,9 +2,13 @@ import inspect
 from Classes.animal import Animal
 
 def get_animals_types():
-    animal_classes = [cls for cls in inspect.getmembers(globals(), inspect.isclass)
-                      if issubclass(cls[1], Animal)]
-    return animal_classes
+    subclasses = []
+    for module in inspect.getmembers(inspect.getmodule(Animal), inspect.ismodule):
+        if module[1] is not None:
+            for cls in inspect.getmembers(module[1], inspect.isclass):
+                if issubclass(cls[1], Animal) and cls[1] is not Animal:
+                    subclasses.append(cls)
+    return subclasses
 
 
 def display_animal_type_choices():
